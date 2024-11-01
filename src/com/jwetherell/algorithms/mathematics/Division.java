@@ -3,14 +3,26 @@ package com.jwetherell.algorithms.mathematics;
 public class Division {
 
     public static final long division(int a, int b) {
-        long result = ((long) a) / ((long) b);
-        return result;
+        // implement exception handling if divison by 0 is detected
+        if (b==0){
+            throw new IllegalArgumentException("no divison by 0!");
+        }
+        // otherwise display result as normal
+        else {
+            long result = ((long) a) / ((long) b);
+            return result;
+        }
     }
 
-    public static final long divisionUsingLoop(int a, int b) {
+        public static final long divisionUsingLoop(int a, int b) {
         int absA = Math.abs(a);
         int absB = Math.abs(b);
-
+        // implement exception handling if divison by 0 is detected
+        if (b==0){
+            throw new IllegalArgumentException("no divison by 0!");
+        }
+        // otherwise display result as normal
+        else {
         long temp = absA;
         long result = 0;
         while (temp >= 0) {
@@ -20,11 +32,17 @@ public class Division {
         }
         return (a > 0 && b > 0 || a < 0 && b < 0) ? result : -result;
     }
+    }
 
     public static final long divisionUsingRecursion(int a, int b) {
         int absA = Math.abs(a);
         int absB = Math.abs(b);
-
+        // implement exception handling if divison by 0 is detected
+        if (b==0){
+            throw new IllegalArgumentException("no divison by 0!");
+        }
+        // otherwise display result as normal
+        else{
         long result = 1;
         int diff = absA - absB;
         if (diff > 0 && diff <= 1) {
@@ -36,11 +54,17 @@ public class Division {
         result += divisionUsingRecursion(diff, absB);
         return (a > 0 && b > 0 || a < 0 && b < 0) ? result : -result;
     }
+    }
 
     public static final long divisionUsingMultiplication(int a, int b) {
         int absA = Math.abs(a);
         int absB = Math.abs(b);
-
+        // implement exception handling if divison by 0 is detected
+        if (b==0){
+            throw new IllegalArgumentException("no divison by 0!");
+        }
+        // otherwise display result as normal
+        else {
         int temp = absB;
         int counter = 0;
         while (temp <= absA) {
@@ -53,12 +77,18 @@ public class Division {
             result += divisionUsingMultiplication(absA, absB);
         return (a > 0 && b > 0 || a < 0 && b < 0) ? result : -result;
     }
+    }
 
     public static final long divisionUsingShift(int a, int b) {
         int absA = Math.abs(a);
         int absB = Math.abs(b);
         int tempA, tempB, counter;
-
+        // implement exception handling if divison by 0 is detected
+        if (b==0){
+            throw new IllegalArgumentException("no divison by 0!");
+        }
+        // otherwise display result as normal
+        else {
         long result = 0L;
         while (absA >= absB) {
             tempA = absA >> 1; // Right shift "a"
@@ -74,14 +104,22 @@ public class Division {
         }
         return (a > 0 && b > 0 || a < 0 && b < 0) ? result : -result;
     }
+    }
 
     public static final long divisionUsingLogs(int a, int b) {
         long absA = Math.abs(a);
         long absB = Math.abs(b);
+        // implement exception handling if divison by 0 is detected
+        if (b==0){
+            throw new IllegalArgumentException("no divison by 0!");
+        }
+        // otherwise display result as normal
+        else {
         double logBase10A = Math.log10(absA);
         double logBase10B = Math.log10(absB);
         double powOf10 = Math.pow(10, (logBase10A - logBase10B));
         long result = (long) Math.floor(powOf10);
         return (a > 0 && b > 0 || a < 0 && b < 0) ? result : -result;
     }
+}
 }
